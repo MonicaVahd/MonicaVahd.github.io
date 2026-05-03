@@ -173,49 +173,61 @@
   }
 
   /* ── PUBLICATIONS ── */
-  .pub-list { display: flex; flex-direction: column; gap: 0; }
-  .pub-item {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1.25rem 0;
+  .pub-scholar-link { font-size: 15px; color: var(--muted); margin-bottom: 2.5rem; }
+  .pub-scholar-link a { color: var(--accent); text-decoration: none; }
+  .pub-scholar-link a:hover { text-decoration: underline; }
+
+  .pub-list { display: flex; flex-direction: column; }
+
+  .pub-card {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
     border-bottom: 1px solid var(--border);
-    animation: fadeUp 0.4s ease both;
+    align-items: start;
   }
-  .pub-item:last-child { border-bottom: none; }
-  .pub-num {
+  .pub-card:last-child { border-bottom: none; }
+
+  .pub-fig {
+    width: 100%; aspect-ratio: 4/3;
+    border: 1px solid var(--border); border-radius: 6px;
+    background: var(--surface); overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
-    font-family: var(--serif);
-    font-size: 13px;
-    color: var(--faint);
-    width: 28px;
-    text-align: right;
-    padding-top: 2px;
   }
-  .pub-body { flex: 1; min-width: 0; }
-  .pub-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    letter-spacing: 0.02em;
+  .pub-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pub-fig-ph {
+    width: 100%; height: 100%; min-height: 180px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px; padding: 1.25rem; text-align: center;
   }
-  .badge-conf  { background: var(--accent-bg); color: var(--accent); }
-  .badge-award { background: var(--amber-bg);  color: var(--amber);  }
-  .badge-jour  { background: #eaf3de;           color: #3b6d11;       }
-  .badge-book  { background: #f3eef8;           color: #5a3a8a;       }
+  .ph-venue {
+    font-size: 11px; font-weight: 600; letter-spacing: .07em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+  }
+  .ph-hint { font-size: 11px; color: var(--faint); font-style: italic; line-height: 1.4; }
+
   .pub-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.45;
-    margin-bottom: 4px;
+    font-size: 20px; font-weight: 400; font-family: var(--serif);
+    color: var(--text); line-height: 1.35; margin-bottom: 12px;
   }
-  .pub-authors { font-size: 13px; color: var(--muted); margin-bottom: 3px; }
-  .pub-authors strong { color: var(--text); font-style: normal; }
-  .pub-venue { font-size: 13px; color: var(--faint); font-style: italic; }
-  .pub-venue strong { font-style: normal; color: var(--muted); font-weight: 500; }
+  .pub-title-rule { border: none; border-top: 1px solid var(--border); margin-bottom: 10px; }
+  .pub-links-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .pub-link { font-size: 15px; color: var(--accent); text-decoration: none; }
+  .pub-link:hover { text-decoration: underline; }
+  .pub-award-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px; font-weight: 500;
+    background: var(--amber-bg); color: var(--amber);
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 10px;
+  }
+  .pub-authors-line { font-size: 15px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+  .pub-authors-line strong { color: var(--text); font-weight: 500; }
+  .pub-authors-line .at-venue { color: var(--accent); text-decoration: none; }
+  .pub-authors-line .at-venue:hover { text-decoration: underline; }
+  .pub-abstract { font-size: 15px; color: var(--muted); line-height: 1.75; }
 
   /* ── TIMELINE ── */
   .timeline { display: flex; flex-direction: column; gap: 0; }
@@ -327,6 +339,8 @@
     .tl-date { font-size: 12px; color: var(--faint); }
     .award-item { grid-template-columns: 1fr; gap: 2px; }
     .nav-inner { height: auto; padding: 8px 1rem; flex-wrap: wrap; }
+    .pub-card { grid-template-columns: 1fr; gap: 1rem; }
+    .pub-fig { aspect-ratio: 16/9; }
   }
 </style>
 </head>
@@ -351,10 +365,7 @@
 
   <!-- HERO -->
   <div class="hero">
-  <div class="avatar">
-  <img src="MyImage.PNG" alt="Monica Vahdati"
-       style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-   </div>
+    <div class="avatar">MV</div>
     <div class="hero-text">
       <h1>Monica Vahdati</h1>
       <div class="hero-subtitle">
@@ -408,176 +419,101 @@
 
   <!-- PUBLICATIONS -->
   <section id="publications">
-    <div class="section-head">Publications</div>
+    <div class="section-head">Selected Publications</div>
+    <p class="pub-scholar-link">View Full Publication List on <a href="https://scholar.google.com/citations?user=GYJniUQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
     <div class="pub-list">
 
-      <div class="pub-item">
-        <div class="pub-num">J1</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-jour">ACM TOMM · Journal 2024</span>
+
+      <!-- ── CARD 1: ACM TOMM journal ── -->
+      <div class="pub-card">
+        <div class="pub-fig">
+          <!-- Replace with: <img src="fig_tomm.png" alt="Wearable Devices in Metaverse figure"> -->
+          <div class="pub-fig-ph">
+            <span class="ph-venue" style="background:#e6f4ea;color:#1a5c2a;">ACM TOMM · Journal</span>
+            <span class="ph-hint">Replace with your paper figure</span>
+          </div>
+        </div>
+        <div class="pub-right">
           <div class="pub-title">Meta-Review of Wearable Devices for Healthcare in the Metaverse</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Laamarti F., El Saddik A.</div>
-          <div class="pub-venue"><strong>ACM Transactions on Multimedia Computing, Communications, and Applications</strong>, Nov. 2024</div>
+          <hr class="pub-title-rule">
+          <div class="pub-links-row">
+            <a class="pub-link" href="https://doi.org/10.1145/3705320" target="_blank" rel="noopener">DOI</a>
+          </div>
+          <div class="pub-authors-line">
+            <strong>Vahdati M.</strong>, Laamarti F., El Saddik A. @
+            <a class="at-venue" href="https://dl.acm.org/journal/tomm" target="_blank" rel="noopener">ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 2024</a>
+          </div>
+          <div class="pub-abstract">A comprehensive meta-review synthesizing research on wearable technologies within the Metaverse, examining real-time multimodal data integration, immersive user experience design, and the challenges and opportunities for healthcare applications in extended reality environments.</div>
         </div>
       </div>
 
-      <div class="pub-item">
-        <div class="pub-num">C1</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-award">🏆 Best Student Paper Award</span>
-          <div class="pub-title">Digital Twin AI Fitness Coach: An Intelligent Multi-Agent System for Personalized Exercise Guidance</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Laamarti F., Kumar D., El Saddik A.</div>
-          <div class="pub-venue"><strong>ACM MSMA '25</strong> — 1st Workshop on Multi-Sensorial Media and Applications, Dublin, Ireland, 2025</div>
+      <!-- ── CARD 2: ACM MM '25 ── -->
+      <div class="pub-card">
+        <div class="pub-fig">
+          <!-- Replace with: <img src="fig_acmmm.png" alt="A2A Protocol Digital Twin diagram"> -->
+          <div class="pub-fig-ph">
+            <span class="ph-venue" style="background:#e8eef7;color:#1a4a8a;">ACM MM '25</span>
+            <span class="ph-hint">Replace with your paper figure</span>
+          </div>
         </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C2</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">ACM MM '25</span>
+        <div class="pub-right">
           <div class="pub-title">Agent-to-Agent (A2A) Protocol Integrated Digital Twin System with AgentIQ for Multimodal AI Fitness Coaching and Personalized Well-Being</div>
-          <div class="pub-authors">Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong>, Laamarti F., El Saddik A.</div>
-          <div class="pub-venue"><strong>33rd ACM International Conference on Multimedia</strong>, Dublin, Ireland, 2025</div>
+          <hr class="pub-title-rule">
+          <div class="pub-links-row">
+            <a class="pub-link" href="https://doi.org/10.1145/3746027.37581762" target="_blank" rel="noopener">DOI</a>
+          </div>
+          <div class="pub-authors-line">
+            Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong>, Laamarti F., El Saddik A. @
+            <a class="at-venue" href="https://2025.acmmm.org" target="_blank" rel="noopener">33rd ACM International Conference on Multimedia (ACM MM '25), Dublin, 2025</a>
+          </div>
+          <div class="pub-abstract">We integrate the Agent-to-Agent (A2A) protocol with a digital twin system powered by NVIDIA AgentIQ to enable multimodal AI coaching. The framework coordinates specialized agents for perception, reasoning, and personalized feedback generation through a structured inter-agent communication protocol.</div>
         </div>
       </div>
 
-      <div class="pub-item">
-        <div class="pub-num">C3</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">ACM IMX '25</span>
+      <!-- ── CARD 3: ACM MSMA '25 — Best Student Paper ── -->
+      <div class="pub-card">
+        <div class="pub-fig">
+          <!-- Replace with: <img src="fig_fair.png" alt="FAIR system architecture"> -->
+          <div class="pub-fig-ph">
+            <span class="ph-venue" style="background:#faf0dc;color:#7a4f10;">🏆 Best Student Paper</span>
+            <span class="ph-hint">Replace with your paper figure</span>
+          </div>
+        </div>
+        <div class="pub-right">
+          <div class="pub-award-badge">🏆 Best Student Paper Award</div>
+          <div class="pub-title">Digital Twin AI Fitness Coach: An Intelligent Multi-Agent System for Personalized Exercise Guidance</div>
+          <hr class="pub-title-rule">
+          <div class="pub-links-row">
+            <a class="pub-link" href="https://doi.org/10.1145/3728485.37591715" target="_blank" rel="noopener">DOI</a>
+          </div>
+          <div class="pub-authors-line">
+            <strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Laamarti F., Kumar D., El Saddik A. @
+            <a class="at-venue" href="https://2025.acmmm.org" target="_blank" rel="noopener">ACM Workshop on Multi-Sensorial Media and Applications (MSMA '25), Dublin, 2025</a>
+          </div>
+          <div class="pub-abstract">We present a digital twin AI fitness coaching system combining real-time pose estimation, action recognition, and a multi-agent LLM architecture to deliver personalized exercise guidance. The system achieves sub-second perception–action latency and provides adaptive feedback across multimodal outputs (text, speech, visual).</div>
+        </div>
+      </div>
+
+      <!-- ── CARD 4: ACM IMX '25 ── -->
+      <div class="pub-card">
+        <div class="pub-fig">
+          <!-- Replace with: <img src="fig_imx.png" alt="Multi-Agent Digital Twin framework"> -->
+          <div class="pub-fig-ph">
+            <span class="ph-venue" style="background:#e8eef7;color:#1a4a8a;">ACM IMX '25</span>
+            <span class="ph-hint">Replace with your paper figure</span>
+          </div>
+        </div>
+        <div class="pub-right">
           <div class="pub-title">A Multi-Agent Digital Twin Framework for AI-Driven Fitness Coaching</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Laamarti F., El Saddik A.</div>
-          <div class="pub-venue"><strong>ACM International Conference on Interactive Media Experiences</strong>, 2025</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C4</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">ACM APP3DV '25</span>
-          <div class="pub-title">Real-Time 2D-to-3D LiDAR Reconstruction and Omniverse-Based Visualization for Scalable Point Cloud Applications</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Dong H., Hafidh B., El Saddik A.</div>
-          <div class="pub-venue"><strong>ACM Workshop on Application-Driven Point Cloud Processing and 3D Vision</strong>, Dublin, Ireland, 2025</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C5</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">ACM I2M-MM '25</span>
-          <div class="pub-title">AI-Enhanced Creation of Digital Twins from iPhone LiDAR for Immersive XR Experiences in NVIDIA Omniverse</div>
-          <div class="pub-authors">Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong>, Dong H., El Saddik A.</div>
-          <div class="pub-venue"><strong>ACM Workshop on Intelligent Immersification in the Metaverse</strong>, Dublin, Ireland, 2025</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C6</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">IEEE MeMeA '25</span>
-          <div class="pub-title">The Potential of Olfactory Stimuli in Stress Reduction Through Virtual Reality</div>
-          <div class="pub-authors">Elsaddik Valdivieso Y., Faisal M., Alghoul K., <strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Laamarti F., Al Osman H., El Saddik A.</div>
-          <div class="pub-venue"><strong>IEEE International Conference on Medical Measurements &amp; Applications</strong>, Chania, Greece, 2025</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C7</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">IEEE/ACM CHASE '21</span>
-          <div class="pub-title">The Digital Twins in Cancer: State-of-the-Art and Open Research</div>
-          <div class="pub-authors">Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong>, Saghiri A.M., Forestiero A.</div>
-          <div class="pub-venue"><strong>IEEE/ACM Conference on Connected Health</strong>, Washington D.C., USA, 2021</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C8</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-award">Selected High-Quality Paper</span>
-          <div class="pub-title">A Self-Organized Framework for Insurance Based on IoT and Blockchain</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Saghiri A.M., Rashidi H.</div>
-          <div class="pub-venue"><strong>IEEE FiCloud</strong>, Barcelona, Spain, 2018</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C9</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-award">Best Paper Award</span>
-          <div class="pub-title">A Framework for Cognitive Internet of Things Based on Blockchain</div>
-          <div class="pub-authors">Saghiri A.M., <strong>Vahdati M.</strong>, Gholizadeh K., Meybodi M.R., Dehghan M., Rashidi H.</div>
-          <div class="pub-venue"><strong>IEEE ICWR</strong>, Tehran, Iran, 2018</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C10</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">IEEE KBEI '17</span>
-          <div class="pub-title">A Framework for Cognitive Recommender Systems in IoT</div>
-          <div class="pub-authors">Gholizadeh HamlAbadi K., Saghiri A.M., <strong>Vahdati M.</strong>, Dehghan TakhtFooladi M., Meybodi M.R.</div>
-          <div class="pub-venue"><strong>IEEE 4th International Conference on Knowledge-Based Engineering and Innovation</strong>, Tehran, Iran, 2017</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">C11</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-conf">National Conference · 2013</span>
-          <div class="pub-title">The Effectiveness of the Internet and Search Engines on the Tourist Industry and Tourism</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Abdolvand N.</div>
-          <div class="pub-venue"><strong>The First National Conference on Tourism in Iran</strong>, Hamedan, Iran, 2013 (Poster &amp; Proceedings, in Persian)</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">B1</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-book">Book Chapter · Elsevier 2023</span>
-          <div class="pub-title">Digital Twin for Allergies</div>
-          <div class="pub-authors">Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong>, Saghiri A.M., Gholizadeh K.</div>
-          <div class="pub-venue">In <em>Digital Twin for Healthcare: Design, Challenges, and Solutions</em>, Ed. El Saddik A., Elsevier, 2023</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">B2</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-book">Book Chapter · Elsevier 2023</span>
-          <div class="pub-title">Applications of Digital Twins to Migraine Disease</div>
-          <div class="pub-authors">Saghiri A.M., Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong></div>
-          <div class="pub-venue">In <em>Digital Twin for Healthcare: Design, Challenges, and Solutions</em>, Ed. El Saddik A., Elsevier, 2023</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">B3</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-book">Book Chapter · Elsevier 2023</span>
-          <div class="pub-title">Digital Twins for Nutrition</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Saghiri A.M., Gholizadeh HamlAbadi K.</div>
-          <div class="pub-venue">In <em>Digital Twin for Healthcare: Design, Challenges, and Solutions</em>, Ed. El Saddik A., Elsevier, 2023</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">B4</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-book">Book Chapter · Springer 2021</span>
-          <div class="pub-title">IoT-Based Healthcare Monitoring Using Blockchain</div>
-          <div class="pub-authors"><strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Saghiri A.M.</div>
-          <div class="pub-venue">In <em>Applications of Blockchain in Healthcare</em>, Studies in Big Data vol. 83, Springer, 2021, pp. 141–170</div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-num">B5</div>
-        <div class="pub-body">
-          <span class="pub-badge badge-book">Book Chapter · Springer 2020</span>
-          <div class="pub-title">The Internet of Things, Artificial Intelligence, and Blockchain: Implementation Perspectives</div>
-          <div class="pub-authors">Saghiri A.M., Gholizadeh HamlAbadi K., <strong>Vahdati M.</strong></div>
-          <div class="pub-venue">In <em>Advanced Applications of Blockchain Technology</em>, Studies in Big Data vol. 60, Springer, 2020, pp. 15–54</div>
+          <hr class="pub-title-rule">
+          <div class="pub-links-row">
+            <a class="pub-link" href="https://doi.org/10.1145/3706370.37316516" target="_blank" rel="noopener">DOI</a>
+          </div>
+          <div class="pub-authors-line">
+            <strong>Vahdati M.</strong>, Gholizadeh HamlAbadi K., Laamarti F., El Saddik A. @
+            <a class="at-venue" href="https://imx.acm.org/2025/" target="_blank" rel="noopener">ACM International Conference on Interactive Media Experiences (IMX '25), 2025</a>
+          </div>
+          <div class="pub-abstract">A scalable multi-agent digital twin framework for AI-driven fitness coaching featuring modular perception, reasoning, and action components with distributed state management (Redis, PostgreSQL), enabling contextual awareness and coordination across heterogeneous agents in real-time embodied environments.</div>
         </div>
       </div>
 
