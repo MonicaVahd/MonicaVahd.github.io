@@ -190,13 +190,13 @@
   .pub-card:last-child { border-bottom: none; }
 
   .pub-fig {
-    width: 100%; aspect-ratio: 4/3;
+    width: 100%;
     border: 1px solid var(--border); border-radius: 6px;
     background: var(--surface); overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: flex-start; justify-content: center;
     flex-shrink: 0;
   }
-  .pub-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pub-fig img { width: 100%; height: auto; object-fit: contain; display: block; border-radius: 6px; }
   .pub-fig-ph {
     width: 100%; height: 100%; min-height: 180px;
     display: flex; flex-direction: column;
@@ -282,33 +282,6 @@
   }
   .skill-items { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-  /* ── REFERENCES ── */
-  .ref-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 12px;
-  }
-  .ref-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-  }
-  .ref-initial {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: var(--accent-bg);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif);
-    font-size: 14px;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-  .ref-name { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
-  .ref-inst { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-  .ref-email { font-size: 12px; color: var(--accent); text-decoration: none; }
-  .ref-email:hover { text-decoration: underline; }
-
   /* ── FOOTER ── */
   footer {
     max-width: var(--max);
@@ -356,7 +329,6 @@
       <a href="#teaching">Teaching</a>
       <a href="#awards">Awards</a>
       <a href="#skills">Skills</a>
-      <a href="#references">References</a>
     </div>
   </div>
 </nav>
@@ -365,10 +337,7 @@
 
   <!-- HERO -->
   <div class="hero">
-  <div class="avatar">
-  <img src="MyImage.PNG" alt="Monica Vahdati"
-       style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-  </div>
+    <div class="avatar">MV</div>
     <div class="hero-text">
       <h1>Monica Vahdati</h1>
       <div class="hero-subtitle">
@@ -453,7 +422,7 @@
       <!-- ── CARD 2: ACM MM '25 ── -->
       <div class="pub-card">
         <div class="pub-fig">
-         <img src="DTA2A.png" alt="A2A Protocol Digital Twin diagram">
+          <!-- Replace with: <img src="fig_acmmm.png" alt="A2A Protocol Digital Twin diagram"> -->
           <div class="pub-fig-ph">
             <span class="ph-venue" style="background:#e8eef7;color:#1a4a8a;">ACM MM '25</span>
             <span class="ph-hint">Replace with your paper figure</span>
@@ -695,6 +664,8 @@
       </div>
     </div>
   </section>
+
+
 
 </div><!-- /page -->
 
