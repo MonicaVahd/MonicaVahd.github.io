@@ -122,8 +122,19 @@
     font-size: 14px;
     font-weight: 300;
     color: var(--muted);
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     line-height: 1.5;
+  }
+  .availability {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1a6b3a;
+    background: #eaf5ee;
+    border: 1px solid #a8d9b8;
+    border-radius: 100px;
+    padding: 5px 14px;
+    display: inline-block;
+    margin-bottom: 16px;
   }
   .contact-row {
     display: flex;
@@ -223,6 +234,13 @@
     font-size: 12px; font-weight: 500;
     background: var(--amber-bg); color: var(--amber);
     padding: 3px 10px; border-radius: 100px; margin-bottom: 10px;
+  }
+  .pub-oral-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px; font-weight: 500;
+    background: #ede8f8; color: #4a1a8a;
+    border: 1px solid #c5b5e8;
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; margin-left: 6px;
   }
   .pub-authors-line { font-size: 15px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
   .pub-authors-line strong { color: var(--text); font-weight: 500; }
@@ -338,16 +356,18 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="avatar"
-     style="background-image: url('https://avatars.githubusercontent.com/u/230227681?v=4');
-     background-size: cover;
-     background-position: center;">
+    <div class="avatar">
+      <img src="MyImage.PNG" alt="Monica Vahdati"
+           style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
     </div>
     <div class="hero-text">
       <h1>Monica Vahdati</h1>
       <div class="hero-subtitle">
         Ph.D. Candidate &amp; Part-time Professor · University of Ottawa<br>
         Electrical &amp; Computer Engineering · Ottawa, Canada
+      </div>
+      <div class="availability">
+        🌟 Open to Postdoctoral and industry research positions — happy to connect about opportunities.
       </div>
       <div class="contact-row">
         <a href="mailto:mvahdati@uottawa.ca"><i class="fa fa-envelope"></i>&ensp;Email</a>
@@ -404,7 +424,7 @@
       <!-- ── CARD 1: ACM TOMM journal ── -->
       <div class="pub-card" style="grid-template-columns: 1fr;">
         <div class="pub-fig">
-          <img src="images/papers/DomainApplication.png" alt="Classification of wearable devices across body parts">
+          <img src="DomainApplication.png" alt="Classification of wearable devices across body parts">
         </div>
         <div class="pub-right">
           <div class="pub-title">Meta-Review of Wearable Devices for Healthcare in the Metaverse</div>
@@ -424,11 +444,12 @@
       <!-- ── CARD 2: ACM MM '25 ── -->
       <div class="pub-card" style="grid-template-columns: 1fr;">
         <div class="pub-fig">
-          <img src="images/papers/DTA2A.png" alt="A2A Protocol Digital Twin diagram">
+          <img src="DTA2A.png" alt="A2A Protocol Digital Twin diagram">
         </div>
         <div class="pub-right">
           <div class="pub-title">Agent-to-Agent (A2A) Protocol Integrated Digital Twin System with AgentIQ for Multimodal AI Fitness Coaching and Personalized Well-Being</div>
           <hr class="pub-title-rule">
+          <div style="margin-bottom:10px;"><span class="pub-oral-badge">🎤 Oral Presentation</span></div>
           <div class="pub-links-row">
             <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3746027.3758176" target="_blank" rel="noopener">PDF</a>
             <a class="pub-link" href="https://doi.org/10.1145/3746027.37581762" target="_blank" rel="noopener">DOI</a>
@@ -444,10 +465,10 @@
       <!-- ── CARD 3: ACM MSMA '25 — Best Student Paper ── -->
       <div class="pub-card" style="grid-template-columns: 1fr;">
         <div class="pub-fig">
-          <img src="images/papers/DTAIFC.jpeg" alt="FAIR system architecture">
+          <img src="DTAIFC.jpeg" alt="FAIR system architecture">
         </div>
         <div class="pub-right">
-          <div class="pub-award-badge">🏆 Best Student Paper Award</div>
+          <div class="pub-award-badge">🏆 Best Student Paper Award</div><span class="pub-oral-badge">🎤 Oral Presentation</span>
           <div class="pub-title">Digital Twin AI Fitness Coach: An Intelligent Multi-Agent System for Personalized Exercise Guidance</div>
           <hr class="pub-title-rule">
           <div class="pub-links-row">
@@ -466,11 +487,12 @@
       <!-- ── CARD 4: ACM IMX '25 ── -->
       <div class="pub-card" style="grid-template-columns: 1fr;">
         <div class="pub-fig">
-          <img src="images/papers/DTAIFC(MultiAgent).png" alt="Multi-Agent Digital Twin framework">
+          <img src="DTAIFC(MultiAgent).png" alt="Multi-Agent Digital Twin framework">
         </div>
         <div class="pub-right">
           <div class="pub-title">A Multi-Agent Digital Twin Framework for AI-Driven Fitness Coaching</div>
           <hr class="pub-title-rule">
+          <div style="margin-bottom:10px;"><span class="pub-oral-badge">🎤 Oral Presentation</span></div>
           <div class="pub-links-row">
             <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3706370.3731651" target="_blank" rel="noopener">PDF</a>
             <a class="pub-link" href="https://doi.org/10.1145/3706370.37316516" target="_blank" rel="noopener">DOI</a>
